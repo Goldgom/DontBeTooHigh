@@ -1,0 +1,18 @@
+{
+  "temperature": 20.0,
+  "has_troposphere": true,
+  "troposphere_height": [0, 127],
+  "troposphere_air_density": [0.885, 0.915],
+  "has_stratosphere": false,
+  "stratosphere_height": [300, 480],
+  "stratosphere_air_density": [0.8, 0.2],
+  "has_mesosphere": false,
+  "mesosphere_height": [480, 1000],
+  "mesosphere_air_density": [0.2, 0.05],
+  "has_thermosphere": false,
+  "thermosphere_height": [1000, 2000],
+  "thermosphere_air_density": [0.05, 0.01],
+  "has_exosphere": true,
+  "exosphere_height": [127, 10000],
+  "exosphere_air_density": [0.01, 0.001]
+}

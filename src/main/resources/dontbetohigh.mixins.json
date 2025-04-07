@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.goldgom.dontbetohigh.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "dontbetohigh.refmap.json",
+  "mixins": [
+    "AirSupply",
+    "World",
+    "AirHurt",
+    "RealEnvironmentPlayer",
+    "EntityWalkDetect"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
