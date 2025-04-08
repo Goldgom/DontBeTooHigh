@@ -25,7 +25,7 @@ displayName = "${mod_name}" #mandatory
 # A URL for the "homepage" for this mod, displayed in the mod UI
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-#logoFile="dontbetohigh.png" #optional
+#logoFile="dontbetoohigh.png" #optional
 # A text field displayed in the mod UI
 #credits="Thanks for this example mod goes to Java" #optional
 # A text field displayed in the mod UI
@@ -61,3 +61,11 @@ mandatory = true
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
+
+
+[[dependencies."${mod_id}"]]
+modId="create"
+mandatory = false
+versionRange="[5,)"#依赖Mod的版本
+ordering="BEFORE"#加载顺序（我是基本没用过）
+side="BOTH"#在哪端运行，一般选择BOTH双端

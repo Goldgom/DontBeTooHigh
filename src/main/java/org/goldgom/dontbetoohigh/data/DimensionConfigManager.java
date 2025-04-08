@@ -1,4 +1,4 @@
-package org.goldgom.dontbetohigh.data;
+package org.goldgom.dontbetoohigh.data;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DimensionConfigManager {
-    private static final Logger LOGGER = LoggerFactory.getLogger("Dontbetohigh");
+    private static final Logger LOGGER = LoggerFactory.getLogger("Dontbetoohigh");
 
     private static final Map<ResourceKey<Level>, DimensionConfig> dimensionConfigs = new HashMap<>();
 

@@ -1,6 +1,4 @@
-package org.goldgom.dontbetohigh.utils;
-
-import net.minecraft.world.phys.Vec3;
+package org.goldgom.dontbetoohigh.utils;
 
 public interface IEntityWalkDetect {
     public boolean isWalking();

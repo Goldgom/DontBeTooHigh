@@ -1,10 +1,9 @@
-package org.goldgom.dontbetohigh.mixin;
+package org.goldgom.dontbetoohigh.mixin;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-import org.goldgom.dontbetohigh.utils.IEntityWalkDetect;
+import org.goldgom.dontbetoohigh.utils.IEntityWalkDetect;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;

@@ -1,9 +1,9 @@
-package org.goldgom.dontbetohigh.mixin;
+package org.goldgom.dontbetoohigh.mixin;
 
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
-import org.goldgom.dontbetohigh.utils.IRealEnvironmentPlayer;
+import org.goldgom.dontbetoohigh.utils.IRealEnvironmentPlayer;
 
 @Mixin(Player.class) // 将此 Mixin 注入到原版 Player 类
 public class RealEnvironmentPlayer implements IRealEnvironmentPlayer {
@@ -20,5 +20,6 @@ public class RealEnvironmentPlayer implements IRealEnvironmentPlayer {
     public boolean isMiningBlock() {
         boolean currentState = this.isMiningBlock;
         this.isMiningBlock = false; // 重置状态
-        return currentState;    }
+        return currentState;
+    }
 }

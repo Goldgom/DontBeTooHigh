@@ -1,10 +1,10 @@
-package org.goldgom.dontbetohigh.data;
+package org.goldgom.dontbetoohigh.data;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import org.goldgom.dontbetohigh.Dontbetohigh;
+import org.goldgom.dontbetoohigh.Dontbetoohigh;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class MobLivingEnvironmentConfigManager {
-    private static final Logger LOGGER = LoggerFactory.getLogger("Dontbetohigh");
+    private static final Logger LOGGER = LoggerFactory.getLogger("Dontbetoohigh");
 
     private static final Map<EntityType<?>, MobEnvironmentConfig> mobConfigs = new HashMap<>();
 
@@ -30,7 +30,7 @@ public class MobLivingEnvironmentConfigManager {
         } else {
             // 如果找不到则尝试读取对应的配置文件data\realenvironment\moblivingenvironment\player.json
             try (InputStreamReader reader = new InputStreamReader(
-                Objects.requireNonNull(Dontbetohigh.class.getResourceAsStream("/data/dontbetohigh/moblivingenvironment/" + entityType.toString() + ".json")),
+                Objects.requireNonNull(Dontbetoohigh.class.getResourceAsStream("/data/dontbetoohigh/moblivingenvironment/" + entityType.toString() + ".json")),
                 StandardCharsets.UTF_8)){
                 
                 // 读取配置文件

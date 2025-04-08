@@ -1,4 +1,4 @@
-package org.goldgom.dontbetohigh.utils;
+package org.goldgom.dontbetoohigh.utils;
 
 public interface IRealEnvironmentPlayer {
     void setMiningBlock(boolean isMining);

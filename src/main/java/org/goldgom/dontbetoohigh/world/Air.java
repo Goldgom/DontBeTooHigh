@@ -1,14 +1,23 @@
-package org.goldgom.dontbetohigh.world;
+package org.goldgom.dontbetoohigh.world;
 
+import com.simibubi.create.content.equipment.armor.BacktankUtil;
+import com.simibubi.create.foundation.advancement.AllAdvancements;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import org.goldgom.dontbetohigh.data.DimensionConfigManager;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraftforge.fml.ModList;
+import org.goldgom.dontbetoohigh.data.DimensionConfigManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
+import static com.simibubi.create.content.equipment.armor.DivingHelmetItem.getWornItem;
+
 public class Air {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger("Dontbetohigh");
+    private static final Logger LOGGER = LoggerFactory.getLogger("dontbetoohigh");
 
   /**
      * 根据生物高度计算空气浓度
@@ -17,6 +26,15 @@ public class Air {
      */
     public static float calculateAirConcentration(LivingEntity entity) {
 
+        
+        if(Air.isOxygenHelmetActive(entity))
+            return 1.0f;
+
+        if(entity.isUnderWater()){
+            int i = EnchantmentHelper.getRespiration(entity);
+            return (float)(Math.pow(2,-1.0/i));
+
+        }
         // 获取生物当前高度
         float height = (float) entity.getY();
 
@@ -66,12 +84,26 @@ public class Air {
         return airDensity[0] + ratio * (airDensity[1] - airDensity[0]);
     }
 
-    /**
-     * 判断玩家是否窒息
-     * @param airConcentration 当前空气浓度
-     * @return 是否窒息
-     */
-    public static boolean isSuffocating(float airConcentration) {
-        return airConcentration < 0.8f; // 空气浓度低于0.3时，玩家窒息
+    public static boolean isOxygenHelmetActive(LivingEntity entity) {
+        if(ModList.get().isLoaded("create"))
+        {
+            ItemStack helmet = getWornItem(entity);
+            if (helmet.isEmpty())
+                return false;
+            List<ItemStack> backtanks = BacktankUtil.getAllWithAir(entity);
+            if (backtanks.isEmpty())
+                return false;
+            if (entity.isInLava()) {
+                if (entity instanceof ServerPlayer sp)
+                    AllAdvancements.DIVING_SUIT_LAVA.awardTo(sp);
+                if (backtanks.stream()
+                        .noneMatch(backtank -> backtank.getItem()
+                                .isFireResistant()))
+                    return false;
+            }
+        }
+
+            return true;
+
     }
 }

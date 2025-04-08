@@ -1,12 +1,12 @@
-package org.goldgom.dontbetohigh.mixin;
+package org.goldgom.dontbetoohigh.mixin;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
-import org.goldgom.dontbetohigh.Dontbetohigh;
-import org.goldgom.dontbetohigh.data.DimensionConfigManager;
+import org.goldgom.dontbetoohigh.Dontbetoohigh;
+import org.goldgom.dontbetoohigh.data.DimensionConfigManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,7 +22,7 @@ import java.util.Objects;
 @Mixin(Level.class)
 public class World {
     @Unique
-    private static final Logger LOGGER = LoggerFactory.getLogger("Dontbetohigh");
+    private static final Logger LOGGER = LoggerFactory.getLogger("Dontbetoohigh");
     @Inject(method = "<init>", at = @At("RETURN"))
     private void onInit(CallbackInfo ci) {
 
@@ -33,7 +33,7 @@ public class World {
 
         // 尝试从 /data/minecraft/dimension_type/<dimensionName>.json 加载配置
         try (InputStreamReader reader = new InputStreamReader(
-                Objects.requireNonNull(Dontbetohigh.class.getResourceAsStream("/data/dontbetohigh/dimension_environment/" + dimensionName + ".json")),
+                Objects.requireNonNull(Dontbetoohigh.class.getResourceAsStream("/data/dontbetoohigh/dimension_environment/" + dimensionName + ".json")),
                 StandardCharsets.UTF_8)) {
             JsonObject json = JsonParser.parseReader(reader).getAsJsonObject();
             LOGGER.info("Loaded dimension config for {}: {}", dimensionName, json);

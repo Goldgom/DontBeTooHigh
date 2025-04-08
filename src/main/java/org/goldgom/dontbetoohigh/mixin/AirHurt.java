@@ -1,4 +1,4 @@
-package org.goldgom.dontbetohigh.mixin;
+package org.goldgom.dontbetoohigh.mixin;
 
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -22,7 +22,7 @@ public abstract class AirHurt {
     )
     private static void redirectAddParticle(Level level, ParticleOptions particle, double x, double y, double z, double dx, double dy, double dz, LivingEntity entity) {
         // 自定义粒子效果
-        if(entity.isInWater())
+        if(entity.isUnderWater())
         {
             Vec3 vec3 = entity.getDeltaMovement(); // 获取实体的移动向量
             for (int i = 0; i < 10; ++i) { // 添加多个粒子

@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.goldgom.dontbetoohigh.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "dontbetoohigh.refmap.json",
+  "mixins": [
+    "AirSupply",
+    "AirSupplyUnderWater",
+    "World",
+    "AirHurt",
+    "RealEnvironmentPlayer",
+    "EntityWalkDetect",
+    "comp.create.DivingHelmetMixin"
+
+  ],
+  "client": [
+  ],
+  "plugin": "org.goldgom.dontbetoohigh.utils.DontBeTooHighMixinPlugin",
+  "injectors": {
+    "defaultRequire": 1
+  }
+
+}
